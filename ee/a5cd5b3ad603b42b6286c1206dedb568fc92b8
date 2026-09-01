@@ -1,0 +1,19 @@
+README.md
+  s_e4e09d25ebd350::t_db1e36bfd317e2 1-125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "eea5cd5b3ad603b42b6286c1206dedb568fc92b8",
+  "prompts": {},
+  "sessions": {
+    "s_e4e09d25ebd350": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "bb50b326-b6a5-4a95-802d-16976a6bbcd4",
+        "model": "auto"
+      },
+      "human_author": "Graham Brooks <graham@grahambrooks.com>"
+    }
+  }
+}
