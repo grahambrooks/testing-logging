@@ -1,0 +1,21 @@
+src/test/java/testing/logging/AClassThatLogsTest.java
+  s_e4e09d25ebd350::t_7b441ed0ef5538 30,32-38
+pom.xml
+  s_e4e09d25ebd350::t_c5771816608988 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "faee2624c141132b31538a9cb435c31ec60dc49e",
+  "prompts": {},
+  "sessions": {
+    "s_e4e09d25ebd350": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "bb50b326-b6a5-4a95-802d-16976a6bbcd4",
+        "model": "auto"
+      },
+      "human_author": "Graham Brooks <graham@grahambrooks.com>"
+    }
+  }
+}
