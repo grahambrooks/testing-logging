@@ -4,7 +4,6 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configurator;
-import org.apache.logging.log4j.core.config.builder.api.AppenderComponentBuilder;
 import org.apache.logging.log4j.core.config.builder.api.ConfigurationBuilder;
 import org.apache.logging.log4j.core.config.builder.api.ConfigurationBuilderFactory;
 import org.apache.logging.log4j.core.config.builder.impl.BuiltConfiguration;
@@ -25,17 +24,19 @@ class AClassThatLogsTest {
   @BeforeAll
   public static void addAppender() {
     ConfigurationBuilder<BuiltConfiguration> builder = ConfigurationBuilderFactory.newConfigurationBuilder();
-//    builder.setStatusLevel(Level.DEBUG);
     builder.setConfigurationName("LogTestingBuilder");
 
-    AppenderComponentBuilder appenderBuilder = builder.newAppender("TestLogging", "TestingLoggingAppender");
-
-    builder.add(appenderBuilder);
-
     builder.add(builder.newRootLogger(Level.ALL).add(builder.newAppenderRef("TestLogging")));
+    
     LoggerContext context = Configurator.initialize(builder.build());
+    
+    // Manually create and add the appender after initializing the context
+    TestingLoggingAppender appender = new TestingLoggingAppender("TestLogging", null, true);
+    appender.start();
+    context.getConfiguration().addAppender(appender);
+    context.getRootLogger().addAppender(appender);
+    
     context.start();
-//    LoggerContext.getContext().start(builder.build());
   }
 
   @Test
